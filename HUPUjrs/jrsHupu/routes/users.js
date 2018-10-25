@@ -93,8 +93,30 @@ router.post('/detail', function(req, res, next) {
 	});
 
 	connection.end();
+});
 
 
+//根据用户获取头像
+router.post('/imgchange', function(req, res, next) {
+	var mysql = require('mysql');
+	var connection = mysql.createConnection({
+		host: 'localhost',
+		user: 'root',
+		password: '',
+		database: 'jrsname'
+	});
+
+	connection.query('select * from jrsname where ?', [{
+		username: req.body.username
+	}], function(error, results, fields) {
+		if(error) throw error;
+		if(results.length > 0) {
+			res.send(results[0].picture);
+
+				}
+	});
+
+	connection.end();
 });
 
 module.exports = router;

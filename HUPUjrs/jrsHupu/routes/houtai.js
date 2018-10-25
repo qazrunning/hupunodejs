@@ -40,6 +40,25 @@ router.post('/news', function(req, res, next) {
 	xiangtong().then(isINser);
 });
 
+//根据用户名修改数据库头像表格
+router.post('/imgchange', function(req, res, next) {
+	var mysql = require('mysql');
+	var connection = mysql.createConnection({
+		host: 'localhost',
+		user: 'root',
+		password: '',
+		database: 'jrsname'
+	});
+connection.connect();
+	
+connection.query('update jrsname set picture = ? where username = ?',[req.body.picture,req.body.username] ,function(error, results, fields) {
+		if(error) throw error;
+		res.send(req.body.username);
+		console.log(results)
+		connection.end();
+	});
+	
+});
 
 
 
@@ -62,14 +81,15 @@ var upload = multer({
 	storage: storage
 });
 
-
 //多图上传到临时文件夹存储
 router.post('/uploads', upload.any('logo'), function(req, res, next) {
 	res.append("Access-Control-Allow-Origin", "*");
 	let imgg = req.files[0].filename;
-	console.log(imgg);
+	//console.log(imgg);
 	res.send(imgg);
 });
 
 
+
+//update 表名 set 字段=新值,… where 条件;
 module.exports = router;
