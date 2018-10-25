@@ -1,0 +1,103 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	 background-color:#f3f3f3;
+}
+#HUPUindex{
+	width: 100%;
+	height: 100%;
+}
+.Underline{
+	width: 100%;
+	height: 2px;
+	background-color: #e01b1b;
+	position:absolute;
+	left: 0;
+	bottom: 10px;
+}
+.header{
+	height: 100px;
+	background-color: #fff;
+	margin-bottom: 88px;
+}
+.header ul{
+	padding-left: 50px;
+}
+.header li{
+	float:left;
+	position: relative;
+	margin-right: 30px;
+}
+.header li a{
+	font-size: 55px;
+	color:#e01b1b;
+	    
+	    line-height: 90px;
+}
+.nav{
+	box-sizing: border-box;
+	width: 100%;
+	height: 750px;
+}
+.nav ul{
+	position:relative;
+}
+.nav ul li{
+	float: left;
+	overflow: hidden;
+	position: absolute;
+	top: 0;left: 0;
+}
+.nav ul li a{
+	display: block;
+	width: 100%;
+}
+.nav img{
+	width: 100%;
+	height: 750px;
+}
+.nav a span{
+	display: block;
+	width: 100%;
+	background:rgba(0,0,0,.5);
+	color: #fff;
+	font-size: 50px;
+	position: absolute;
+	bottom: 0;left: 0;
+	padding-left: 30px;
+	height: 88px;
+	line-height: 88px;
+}
+.Indexmain{
+	background-color: #fff;
+}
+.Indexmain ul{
+	box-sizing: border-box;
+	/*height: 2000px;*/
+	width: 100%;
+	padding: 30px 50px;
+}
+.Indexmain li{
+	width: 100%;
+	/*height: 280px;*/
+	border-bottom: 2px solid #CCCCCC;
+	position:relative;
+	margin-top: 40px;
+}
+.Indexmain li h2{
+	font-size: 60px;
+	line-height: 88px;
+	margin-bottom: 122px;
+	color: #333;
+}
+.Indexmain li span{
+	font-size: 36px;
+	color:#C0C0C0;
+	position:absolute;
+	bottom: 15px;right: 20px;
+}
+.Indexmain a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}

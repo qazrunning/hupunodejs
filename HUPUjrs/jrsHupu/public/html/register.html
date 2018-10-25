@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>注册和登入进入后台系统</title>
+		<link rel="stylesheet" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/login.css" />
+	</head>
+	<script src="../javascripts/jquery.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			$("#J_username").blur(function() {
+				$.ajax({
+					type: "post",
+					data: {
+						username: $("#J_username").val(),
+						passwords: $("#J_pwd").val()
+					},
+					url: "http://localhost:3000/users/jrs",
+					async: true,
+					success: function(data) {
+						console.log(data)
+						if(data == 'youl') {
+							$(".error-tips").css("display", "block");
+						}
+					}
+				});
+				var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+				if(!myreg.test($("#J_username").val())) {
+					$(".error-tips").css("display", "block");
+					$("#J_submit").attr('disabled','disabled')
+				}else{
+					$("#J_submit").removeAttr('disabled');
+					
+				}
+				
+			}).focus(function() {
+				$(".error-tips").css("display", "none");
+			});
+			
+			
+			
+			
+			$("#J_submit").click(function(){
+				$.ajax({
+					type: "post",
+					data: {
+						username: $("#J_username").val(),
+						passwords: $("#J_pwd").val()
+					},
+					url: "http://localhost:3000/register/zhuce",
+					async: true,
+					success: function(data) {
+						console.log(data);
+						if(data == 'success') {
+							$("#successBtn").css("display", "block");
+						}
+					}
+				});
+			})
+			
+		});
+	</script>
+
+	<body>
+		<div id="bk-Img">
+			<img src="../images/jrs5.jpg" id="HouTaiImg" />
+		</div>
+		<div id="HouTairegister">
+			<div class="user-login">
+				<div class="login-wrap">
+					<div class="logo">
+						<img src="../images/logo.png" alt="" />
+					</div>
+					<ul class="common-form login-form">
+						<li>
+							<div class="ipt-wrap">
+								<input autocomplete="off" type="text" name="username" placeholder="登录名/手机号/邮箱" data-rule="empty" data-name="帐号" id="J_username" tabindex="1">
+								<p class="error-tips">该账户已存在</p>
+							</div>
+						</li>
+						<li>
+							<div class="ipt-wrap">
+								<input autocomplete="off" type="password" name="password" placeholder="密码" data-rule="empty" data-name="密码" id="J_pwd" tabindex="2">
+							</div>
+						</li>
+						<li>
+							<input type="text" class="yzm fl" />
+							<input type="button" value="获取验证码" class="yzmBtn" />
+						</li>
+						<li class="clearfix sp-item">
+							<a href="#" class="forget-btn fl">!《用户协议》</a>
+							<a href="./login.html" class="register-btn fr">已有账号，立即登入</a>
+						</li>
+						<li>
+							<input type="submit" class="submit-btn" id="J_submit" value="注册" disabled="disabled">
+						</li>
+						<li class="successBtn"><a href="./login.html" id="successBtn">注册成功，点击跳转登入</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

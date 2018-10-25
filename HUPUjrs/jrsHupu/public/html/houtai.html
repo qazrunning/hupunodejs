@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>虎扑后台系统</title>
+		<link rel="stylesheet" href="../css/base.css" />
+		<link rel="stylesheet" href="../css/houtai.css" />
+		<script src="../javascripts/jquery.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				locationUrl()
+				//获取地址url穿过来的值,并设置到用户名的地方
+				function locationUrl() {
+					var tgb = location.href;
+					if(tgb.indexOf("?") >= 0) {
+						tgb = tgb.split('?');
+
+						let name = tgb[1].split('=');
+						//没有完善功能，后期编写获取username字符串
+						//将字符串转数组，然后将各自的数组转成对象。获取到username的值。
+
+						$(".UsersName span").text(name[1])
+					}
+
+				}
+
+				//存入数据库，然后前端显示该数据库
+				var imgurl;
+
+				$("#SelectFiles").change(function() {
+					var uio = $(".BigBox")[0];
+					console.log(uio)
+					$.ajax({
+						url: 'http://localhost:3000/houtai/uploads',
+						type: 'POST',
+						cache: false, //不必须
+						data: new FormData($(".BigBox")[0]),
+						processData: false, //必须
+						contentType: false, //必须
+						success: function(data) {
+							console.log(data)
+							$("#showImg").css('display', 'block')
+							imgurl = data;
+							$("#showImg img").attr('src', `../img/${data}`);
+
+						}
+					})
+				})
+				//修改头像
+				$(".imgFile").change(function() {
+					var uioo = $(".xiugaiBigbox")[0];
+					console.log(uioo)
+					$.ajax({
+						url: 'http://localhost:3000/houtai/uploads',
+						type: 'POST',
+						cache: false, //不必须
+						data: new FormData($(".xiugaiBigbox")[0]),
+						processData: false, //必须
+						contentType: false, //必须
+						success: function(data) {
+							console.log(data)
+							/*$("#showImg").css('display','block')
+							imgurl = data;*/
+							$(".bigImg img").attr('src', `../img/${data}`);
+							//点击确定修改后台头像照片
+							$(".backout").click(function() {
+								$(".headImage img").attr('src', `../img/${data}`);		
+								//点击把数据传入数据库，然后通过获取数据库数据来重新渲染，封装一个函数
+							})
+						}
+					})
+				})
+
+				$(".modify").click(function() {
+					$("#xiugai").css('display', 'block');
+
+				})
+				$(".backout").click(function() {
+					$("#xiugai").css('display', 'none');
+				})
+				$("button>a").attr("href", "http://localhost:3000/html/hupuindex.html")
+				$("button").click(function() {
+					$Title = $(".Title").val();
+					$NewsContent = $("#NewsContent").val();
+					$author = $(".UsersName span").text();
+
+					$.ajax({
+						type: "post",
+						data: {
+							title: $(".Title").val(),
+							content: $("#NewsContent").val(),
+							author: $(".UsersName span").text(),
+							img: imgurl
+						},
+						url: "http://localhost:3000/houtai/news",
+						//async: true,
+						success: function(data) {
+							console.log(data)
+
+						}
+					});
+
+				});
+
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="Backstage">
+			<div class="Backstage-container">
+				<div class="new">
+					<span>后台系统</span>
+				</div>
+				<div class="UeserBox fl">
+					<div class="headImage">
+						<img src="../images/jrs1.jpg" alt="" />
+					</div>
+					<div class="UsersName">
+						<span>我是kobe的女粉</span>
+					</div>
+					<input type="button" value="修改个人资料" class="modify" />
+				</div>
+				<form class="BigBox fr">
+					<input type="text" placeholder="请输入标题" class="Title" />
+					<textarea name="NewsContent" id="NewsContent"></textarea>
+					<input type="file" id="SelectFiles" name="logo" multiple="multiple" />
+
+					<div id="showImg">
+
+						<img src="" alt="" />
+					</div>
+					<button>
+					<a href="">发布</a></button>
+				</form>
+			</div>
+		</div>
+
+		<div id="xiugai">
+			<form class="xiugaiBigbox">
+				<h3>修改资料</h3>
+				<div class="bigImg">
+					<img src="../images/nav2.jpg" alt="" />
+				</div>
+
+				<p>请选择图片<input type="file" name="logo" class="imgFile" /></p>
+
+				<input type="button" value="确定" class="backout" />
+			</form>
+		</div>
+
+	</body>
+
+</html>

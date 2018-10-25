@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" id="vp" />
+		<title>Hupu</title>
+		<link rel="stylesheet" href="../css/base.css" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<script type="text/javascript" src="../javascripts/jquery.js">
+
+		</script>
+		<script src="../javascripts/hupuindex.js"></script>
+		<script type="text/javascript">
+			// 把尺寸放大N倍（N是window.devicePixelRatio）
+			var wd = document.documentElement.clientWidth * window.devicePixelRatio / 10;
+			//物理像素*设备像素比=真实像素
+			document.getElementsByTagName("html")[0].style.fontSize = wd + "px";
+			var scale = 1 / window.devicePixelRatio;
+			var mstr = 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no';
+			document.getElementById("vp").content = mstr;
+		</script>
+	</head>
+
+	<body>
+		<div id="HUPUindex">
+			<div class="header">
+				<ul>
+					<li>
+						<a href="#">NBA</a>
+						<span class="Underline"></span>
+					</li>
+					<li>
+						<a href="#">新闻</a>
+					</li>
+					<li>
+						<a href="#">比赛</a>
+					</li>
+					<li>
+						<a href="#">数据</a>
+					</li>
+					<li>
+						<a href="#">选秀</a>
+					</li>
+					<li>
+						<a href="#" id="cheshi">社区</a>
+					</li>
+				</ul>
+			</div>
+			<div class="nav clearfix">
+				<ul class="clearfix">
+					<li>
+						<a href="#"><img src="../images/nav1.jpg" alt="" /><span>只关于篮球</span></a>
+					</li>
+					<li>
+						<a href="#"><img src="../images/jrs2.jpg" alt="" /><span>只关于篮球</span></a>
+					</li>
+					<li>
+						<a href="#"><img src="../images/nav2.jpg" alt="" /><span>高圆圆啊！高圆圆</span></a>
+					</li>
+				</ul>
+			</div>
+			<div class="Indexmain">
+				<ul class="clearfix">
+					<li id="3">
+						<a href="#">
+						<h2>[赛后]勇士98-100掘金，哈里斯28分，约基奇23+11+6，库里30+4+6</h2>
+						<span>
+						50亮951回复</span>
+						</a>
+					</li>
+					<li id="2">
+						<a href="#">
+						<h2>[赛后]勇士98-100掘金，哈里斯28分，约基奇23+11+6，库里30+4+6</h2>
+						<span>
+						50亮951回复</span>
+						</a>
+					</li>
+					<li id="1">
+						<a href="#">
+						<h2>[赛后]勇士98-100掘金，哈里斯28分，约基奇23+11+6，库里30+4+6</h2>
+						<span>
+						50亮951回复</span>
+						</a>
+					</li>
+					
+						
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>
