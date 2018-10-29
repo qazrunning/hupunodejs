@@ -95,6 +95,7 @@ html,body{
 	border-bottom: 2px solid #CCCCCC;
 	position:relative;
 	margin-top: 40px;
+	position: relative;
 }
 .Indexmain li h2{
 	font-size: 60px;
@@ -112,4 +113,23 @@ html,body{
 	display: block;
 	width: 100%;
 	height: 100%;
+}
+
+#deleteNews{
+	position: absolute;
+	left: 0;top: 0;
+	width: 100%;height: 100%;
+	background: rgba(224,27,27,0.2);
+	text-align: center;
+	display: none;
+}	
+#deleteNews button{
+	text-align: center;
+	font-size: 60px;
+	width: 200px;height: 100px;
+	line-height: 100px;
+	margin-top: 66px;
+	background: rgba(224,27,27,1);
+	color:#fff;
+	border-radius: 50px;
 }

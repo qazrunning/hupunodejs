@@ -23,6 +23,20 @@ if(tgb.indexOf("?") >= 0) {
 			$(".Article img").attr("src", `../img/${data[0].img}`);
 			$(".ArticleContent").html(`	<p>${data[0].content}</p>`);
 			console.log(data)
+			$.ajax({
+				type:"post",
+				url:"http://localhost:3000/users/imgchange",
+				data:{
+					username:data[0].author
+				},
+				async:true,
+				success:function(res){
+				$(".author img").attr('src', `../img/${res}`);
+					
+				}
+			});
+			
+			
 		}
 	});
 

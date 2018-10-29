@@ -170,3 +170,16 @@ h1 {
 	color: #fff;
 	right: 0;bottom: 0;
 }
+
+.indexlogin a{
+	font-size: 55px;
+	color:#e01b1b;
+	    
+	    line-height: 90px;
+}
+.indexlogin img{
+	width: 90px;height: 90px;
+	margin-right: 15px;
+	border-radius: 45px;
+	display: none;
+}
