@@ -129,3 +129,44 @@ h1 {
 	float: right;
 	color: #999;
 }
+
+#comment{
+	position: fixed;
+	right: 5%;bottom: 5%;
+	width: 120px;height: 120px;
+		
+}
+#comment .huifu{
+	width: 120px;height: 120px;
+	border-radius: 60px;
+	background-color: rgba(224,27,27,0.8);
+	font-size: 40px;
+	text-align: center;
+	line-height: 100px;
+	color: #fff;
+}
+#comment form{
+	width: 100%;
+	height: 500px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background-color: #58bc58;
+	display: none;
+}
+
+#comment #pinglun{
+	width: 100%;
+	height: 100%;
+	font-size: 42px;
+}
+
+#comment #pinglunBtn{
+	width: 120px;height: 88px;
+	font-size: 40px;
+	border-radius: 20px;
+	background-color: rgba(224,27,27,1);
+	position: absolute;
+	color: #fff;
+	right: 0;bottom: 0;
+}

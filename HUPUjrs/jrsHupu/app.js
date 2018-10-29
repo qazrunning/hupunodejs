@@ -42,4 +42,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+//socket路由
+require("./routes/socket.js").socket();
+
 module.exports = app;

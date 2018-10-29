@@ -11,6 +11,7 @@
 		<script type="text/javascript" src="../javascripts/jquery.js">
 
 		</script>
+		<script src="../javascripts/socket.io.js"></script>
 		<script src="../javascripts/details.js"></script>
 		<script type="text/javascript">
 			// 把尺寸放大N倍（N是window.devicePixelRatio）
@@ -102,6 +103,7 @@
 										</a>
 									</div>
 								</li>
+								
 								<li class="clearfix">
 									<div class="yonghu">
 										<a href="#"><img src="../images/nav2.jpg" />
@@ -125,6 +127,14 @@
 					</div>
 				</div>
 
+			</div>
+			
+			<div id="comment">
+				<input type="button" class="huifu" value="回复"/>
+				<form>
+					<textarea id="pinglun"></textarea>
+					<input type="button" id="pinglunBtn" value="发送"/>
+				</form>
 			</div>
 		</div>
 	</body>

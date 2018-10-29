@@ -119,4 +119,10 @@ router.post('/imgchange', function(req, res, next) {
 	connection.end();
 });
 
+//websocket
+
+
+
+
+
 module.exports = router;

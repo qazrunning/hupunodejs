@@ -34,6 +34,12 @@ html,body{
 	    
 	    line-height: 90px;
 }
+.indexlogin a{
+	font-size: 55px;
+	color:#e01b1b;
+	    
+	    line-height: 90px;
+}
 .nav{
 	box-sizing: border-box;
 	width: 100%;
