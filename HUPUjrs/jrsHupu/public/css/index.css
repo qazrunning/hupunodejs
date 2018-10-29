@@ -40,6 +40,12 @@ html,body{
 	    
 	    line-height: 90px;
 }
+.indexlogin img{
+	width: 90px;height: 90px;
+	margin-right: 15px;
+	border-radius: 45px;
+	display: none;
+}
 .nav{
 	box-sizing: border-box;
 	width: 100%;

@@ -95,6 +95,26 @@ router.post('/detail', function(req, res, next) {
 	connection.end();
 });
 
+//首页头像
+router.post('/indexImg', function(req, res, next) {
+	var mysql = require('mysql');
+	var connection = mysql.createConnection({
+		host: 'localhost',
+		user: 'root',
+		password: '',
+		database: 'jrsname'
+	});
+
+	connection.query('select * from jrsname where ?',[{
+		username:req.body.username
+	}],function(error, results, fields) {
+		if(error) throw error;
+		res.send(results);
+	});
+
+	connection.end();
+});
+
 
 //根据用户获取头像
 router.post('/imgchange', function(req, res, next) {
